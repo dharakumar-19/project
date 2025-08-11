@@ -1,0 +1,55 @@
+<body>
+    <h2>Course Details</h2>
+    <table>
+        <tr>
+            <th>course</th>
+            <th>duration</th>
+        </tr>
+        <tr>
+            <td><a href="https://www.python.org/">
+    <img src="python logo.jfif" alt="Clickable Image" width="200" height="100">
+</a>
+</td>
+            <td>1 month</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.java.com/">
+    <img src="java.png" alt="Clickable Image" width="200" height="100">
+</a>
+</td>
+            <td>1.5 month</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<body>
+    <h2>Course Details</h2>
+    <table>
+        <tr>
+            <th>course</th>
+            <th>duration</th>
+        </tr>
+        <tr>
+            <td><a href="https://www.python.org/">
+    <img src="python logo.jfif" alt="Clickable Image" width="200" height="100">
+</a>
+</td>
+            <td>1 month</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.java.com/">
+    <img src="java.png" alt="Clickable Image" width="200" height="100">
+</a>
+</td>
+            <td>1.5 month</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #d3cce3, #e9e4f0);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: #343a40;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .class-section {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .class-code {
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">👩‍🏫 Teacher Dashboard</a>
+      <span class="navbar-text">Welcome, Teacher!</span>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h3 class="mb-4">Create New Class</h3>
+    <div class="card p-4">
+      <form id="createClassForm">
+        <div class="mb-3">
+          <label for="className" class="form-label">Class Name</label>
+          <input type="text" class="form-control" id="className" placeholder="e.g., Web Development or Math - Grade 10" required>
+        </div>
+        <button type="submit" class="btn btn-success">Create Class</button>
+      </form>
+    </div>
+
+    <h3 class="mt-5 mb-4">Your Classes</h3>
+    <div id="classList"></div>
+  </div>
+
+  <script>
+    const classList = document.getElementById('classList');
+    const createClassForm = document.getElementById('createClassForm');
+
+    function generateClassCode() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let code = '';
+      for (let i = 0; i < 6; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
+    }
+
+    createClassForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const className = document.getElementById('className').value;
+      const classCode = generateClassCode();
+
+      const classCard = document.createElement('div');
+      classCard.className = 'card p-4';
+      classCard.innerHTML = `
+        <h5>Class: ${className}</h5>
+        <p class="class-code">Class Code: <strong>${classCode}</strong></p>
+        <div class="class-section">
+          <div class="section-title">📣 Announcements</div>
+          <textarea class="form-control mb-2" placeholder="Write an announcement..."></textarea>
+          <button class="btn btn-sm btn-primary">Post</button>
+        </div>
+        <div class="class-section mt-4">
+          <div class="section-title">📤 Upload Materials</div>
+          <input type="file" class="form-control mb-2">
+          <button class="btn btn-sm btn-success">Upload</button>
+        </div>
+      `;
+
+      classList.appendChild(classCard);
+      createClassForm.reset();
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
